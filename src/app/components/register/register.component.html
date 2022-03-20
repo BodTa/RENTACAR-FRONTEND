@@ -1,0 +1,65 @@
+<div class="container-fluid">
+  <mat-card class="card-register">
+    <mat-card-content>
+      <form [formGroup]="registerForm">
+        <h1 class="h3 mb-3 fw-normal" style="color: white">Kayıt İşlemleri</h1>
+
+        <div class="form-floating">
+          <input
+            formControlName="email"
+            type="email"
+            class="form-control"
+            id="floatingInput"
+            placeholder="name@example.com"
+          />
+          <label for="floatingInput">E-Posta</label>
+        </div>
+        <br />
+        <div class="form-floating">
+          <input
+            formControlName="firstName"
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Hakan"
+          />
+          <label for="floatingInput">İsim</label>
+        </div>
+        <br />
+        <div class="form-floating">
+          <input
+            formControlName="lastName"
+            type="text"
+            class="form-control"
+            id="floatingInput"
+            placeholder="Kaya"
+          />
+          <label for="floatingInput">Soy İsim</label>
+        </div>
+        <br />
+        <div class="form-floating">
+          <input
+            formControlName="password"
+            type="password"
+            class="form-control"
+            id="floatingPassword"
+            placeholder="Password"
+          />
+          <label for="floatingPassword">Şifre</label>
+        </div>
+        <br />
+        <button
+          mat-raised-button
+          (mouseover)="isOver(true)"
+          (mouseout)="isOver(false)"
+          [@isover2]="ifOver() ? 'isover' : 'notover'"
+          class="btn-register"
+          (click)="register()"
+          type="submit"
+        >
+          Giriş Yap
+        </button>
+      </form></mat-card-content
+    >
+  </mat-card>
+</div>

@@ -1,0 +1,141 @@
+<div class="container">
+  <div clas="row" style="margin-left: 10%">
+    <div class="col">
+      <div class="card" style="background-color: blanchedalmond">
+        <div class="card-header">
+          <h1 class="title">Araç Ekle</h1>
+        </div>
+        <div class="card-body">
+          <form [formGroup]="carAddForm">
+            <div class="mb-3">
+              <label for="brandid" class="form-label"
+                >Aracın Markası - ZORUNLU</label
+              >
+              <select
+                id="brandid"
+                formControlName="brandid"
+                class="form-select"
+                placeholder="Araç İsmi"
+              >
+                <option *ngFor="let brand of brands" [ngValue]="brand.brandId">
+                  {{ brand.brandName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="colorId" class="form-label"
+                >Aracın Rengi - ZORUNLU</label
+              >
+              <select
+                id="colorid"
+                formControlName="colorid"
+                class="form-select"
+              >
+                <option *ngFor="let color of colors" [ngValue]="color.colorId">
+                  {{ color.colorName }}
+                </option>
+              </select>
+            </div>
+            <div class="mb-3">
+              <label for="carName">Arabanın Modeli - ZORUNLU</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="carName"
+                  formControlName="carName"
+                  class="form-control"
+                  placeholder="Model ismi"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="modelYear">Model Tarihi - ZORUNLU</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="modelYear"
+                  formControlName="modelYear"
+                  class="form-control"
+                  placeholder="Model Tarihi"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="doorCount">Koltuk Sayısı - ZORUNLU</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="doorCount"
+                  formControlName="doorCount"
+                  class="form-control"
+                  placeholder="Koltuk Sayısı"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="dailyPrice">Günlük Fiyat - ZORUNLU</label>
+              <div class="form-group">
+                <input
+                  type="number"
+                  id="dailyPrice"
+                  formControlName="dailyPrice"
+                  class="form-control"
+                  placeholder="Günlük Fiyat"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="description">Açıklama - ZORUNLU</label>
+              <div class="form-group">
+                <input
+                  type="text"
+                  id="description"
+                  formControlName="description"
+                  class="form-control"
+                  placeholder="Açıklama"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <link
+                href="https://fonts.googleapis.com/css?family=Montserrat"
+                rel="stylesheet"
+              />
+              <link
+                href="https://fonts.googleapis.com/icon?family=Material+Icons"
+                rel="stylesheet"
+              />
+
+              <input
+                type="file"
+                (change)="onselect($event)"
+                multiple
+                accept="image/*"
+              />
+              <label class="customButton" for="file">
+                <i class="material-icons"> add_photo_alternate </i>
+                &nbsp; Fotoğraf Seç</label
+              >
+            </div>
+            <div class="card-footer">
+              <button
+                type="button"
+                class="btn btn-fill btn-success"
+                (click)="add()"
+              >
+                Aracı Ekle
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <div class="col">
+      <div class="card">
+        <div class="card-img-top">
+          <img *ngFor="let url of urls" [src]="url" width="150" height="150" />
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

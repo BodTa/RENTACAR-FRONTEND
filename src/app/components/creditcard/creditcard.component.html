@@ -1,0 +1,68 @@
+<div class="content">
+  <div clas="row">
+    <div class="card">
+      <div class="card-header"><h5 class="title">Kirala</h5></div>
+    </div>
+    <div class="card-body">
+      <form [formGroup]="creditCardForm">
+        <div class="mb-3">
+          <label for="cardOwnerName">Kart Sahibi</label>
+          <div class="form-group">
+            <input
+              type="text"
+              id="cardOwnerName"
+              formControlName="cardOwnerName"
+              class="form-control"
+              placeholder="Kart Sahibi"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="creditCardNumber">Kart Numarası</label>
+          <div class="form-group">
+            <input
+              type="text"
+              id="creditCardNumber"
+              formControlName="creditCardNumber"
+              class="form-control"
+              placeholder="Kart Numarası"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="CCV">CCV</label>
+          <div class="form-group">
+            <input
+              type="number"
+              id="CCV"
+              formControlName="CCV"
+              class="form-control"
+              placeholder="CCV"
+            />
+          </div>
+        </div>
+        <div class="mb-3">
+          <label for="expirationDate">Son Kullanma Tarihi</label>
+          <div class="form-group">
+            <input
+              type="date"
+              id="expirationDate"
+              formControlName="expirationDate"
+              class="form-control"
+              placeholder="Son Kullanma Tarihi"
+            />
+          </div>
+        </div>
+        <div class="card-footer">
+          <button
+            type="button"
+            class="btn btn-fill btn-success"
+            (click)="payCost()"
+          >
+            Kirala
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+</div>

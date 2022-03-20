@@ -1,0 +1,20 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <div class="mb-3">
+    <label for="filterText" class="form-label">Marka Ara</label>
+    <input type="text" [(ngModel)]="filterText" class="form-control" id="filterText" placeholder="Marka ismi">
+  </div>
+  <table class= "table">
+      <thead>
+        <th>Brand Name</th>
+      </thead>
+      <ul class="list-group">
+        <li [class]="getAllBrandClass()" routerLink="/cars">Tüm Markalar</li>
+          <li (click)="setCurrentBrand(brand)" class ="list-group-item" 
+          *ngFor="let brand of brands |brandFilterPipe:filterText"
+          routerLink="/cars/brand/{{brand.brandId}}"
+          [class]="getCurrentBrandClass(brand)"
+          >{{brand.brandName}}</li>
+      </ul>
+  </table>

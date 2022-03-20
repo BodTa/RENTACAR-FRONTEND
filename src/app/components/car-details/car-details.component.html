@@ -1,0 +1,118 @@
+<div class="container-fluid">
+  <div class="row">
+    <div class="col-8">
+      <mat-card
+        class="mat-card text-white"
+        style="right: 180px; top: 80px; max-height: 450px"
+      >
+        <mat-card-header>
+          <mat-card-title>
+            {{ car.brandName }} {{ car.carName }}
+          </mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+          <div
+            id="carouselExampleControls"
+            class="carousel slide"
+            data-bs-ride="carousel"
+            style="position: static"
+          >
+            <div class="carousel-inner">
+              <div
+                class="carousel-item"
+                *ngFor="let image of carImages; let i = index"
+                [ngClass]="{ active: i == 0 }"
+              >
+                <img
+                  class="d-block w-100"
+                  style="max-height: 380px"
+                  src="https://localhost:44362/{{ image.imagePath }}"
+                  alt="..."
+                />
+              </div>
+            </div>
+            <button
+              class="carousel-control-prev"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="prev"
+            >
+              <span
+                class="carousel-control-prev-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Previous</span>
+            </button>
+            <button
+              class="carousel-control-next"
+              type="button"
+              data-bs-target="#carouselExampleControls"
+              data-bs-slide="next"
+            >
+              <span
+                class="carousel-control-next-icon"
+                aria-hidden="true"
+              ></span>
+              <span class="visually-hidden">Next</span>
+            </button>
+          </div>
+        </mat-card-content>
+      </mat-card>
+    </div>
+    <div class="col">
+      <mat-card
+        class="mat-card text-white"
+        style="top: 80px; height: 450px; width: 310px"
+      >
+        <mat-card-title style="margin-left: 20%"
+          >Araç Özellikleri</mat-card-title
+        >
+        <br />
+        <mat-card-content>
+          <mat-card-subtitle class="text-white" style="margin-left: 20%">
+            <div class="row">
+              Araç satıcısı: {{ seller.firstName }}
+              {{ seller.lastName }}
+            </div>
+            <br />
+            <div class="row">Araç Markası: {{ car.brandName }}</div>
+            <br />
+            <div class="row">Araç Modeli: {{ car.carName }}</div>
+            <br />
+            <div class="row">Araç Rengi: {{ car.colorName }}</div>
+            <br />
+            <div class="row">Araç Model Yılı: {{ modelYear }}</div>
+            <br />
+            <div class="row">Koltuk Sayısı: {{ car.doorCount }}</div>
+            <br />
+            <div class="row">Günlük Fiyat: {{ car.dailyPrice }}</div>
+            <br />
+            <div class="row">{{ car.description }}</div>
+          </mat-card-subtitle>
+        </mat-card-content>
+        <mat-card-actions style="margin-left: 5%">
+          <button
+            (mouseover)="isOver(true)"
+            (mouseout)="isOver(false)"
+            [@isoveropacity]="check() ? 'isover' : 'notover'"
+            mat-button
+            class="button-rent"
+            routerLink="/rental/add/{{ car.carId }}"
+          >
+            Kirala
+          </button>
+          <button
+            (mouseover)="isOver2(true)"
+            (mouseout)="isOver2(false)"
+            [@isoveropacity]="check2() ? 'isover' : 'notover'"
+            mat-button
+            class="button-seller"
+            routerLink="/cars/seller/{{ car.sellerId }}"
+          >
+            Satıcının diğer araçları
+          </button>
+        </mat-card-actions>
+      </mat-card>
+    </div>
+  </div>
+</div>

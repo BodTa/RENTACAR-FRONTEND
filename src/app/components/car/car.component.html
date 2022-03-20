@@ -1,0 +1,140 @@
+<div class="container-fluid">
+  <div
+    *ngIf="dataLoaded == false"
+    class="spinner-border text-danger"
+    role="status"
+  >
+    <span class="visually-hidden">Loading...</span>
+    <hr />
+  </div>
+  <div class="row" style="margin-left: 6%; margin-top: 2%">
+    <div class="col-md-6">
+      <label for="filterText" style="width: 600px" class="form-label">
+        <input
+          style="background-color: rgb(77, 77, 77); color: white"
+          type="text"
+          [(ngModel)]="filterText"
+          class="form-control"
+          id="filterText"
+          placeholder="Araba ismi"
+        />
+      </label>
+    </div>
+    <div class="col-md-2">
+      <select
+        style="background-color: rgb(77, 77, 77); color: white"
+        [(ngModel)]="selectedColorId"
+        class="form-select"
+      >
+        <option selected value="0">Renkler</option>
+        <option @fade *ngFor="let color of colors" value="{{ color.colorId }}">
+          {{ color.colorName }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <select
+        style="background-color: rgb(77, 77, 77); color: white"
+        [(ngModel)]="selectedBrandId"
+        class="form-select"
+      >
+        <option selected value="0">Markalar</option>
+        <option *ngFor="let brand of brands" value="{{ brand.brandId }}">
+          {{ brand.brandName }}
+        </option>
+      </select>
+    </div>
+    <div class="col-md-2">
+      <button
+        style="background-color: rgb(77, 77, 77); color: white"
+        mat-raised-button
+        (mouseover)="isOver = true"
+        (mouseout)="isOver = false"
+        [@isover]="isOver ? 'isover' : 'notover'"
+        mat-button
+        (click)="getCarsByBrandandColor()"
+      >
+        Filtrele
+      </button>
+    </div>
+  </div>
+  <div class="row text-center">
+    <mat-card
+      *ngFor="let car of carDetails | carFilterPipe: filterText; let i = index"
+      class="car-card"
+      @fade
+    >
+      <mat-card-header>
+        <div mat-card-avatar class="example-header-image"></div>
+        <mat-card-title class="yazı"> {{ car.brandName }}</mat-card-title>
+        <mat-card-subtitle class="yazı">{{ car.carName }}</mat-card-subtitle>
+      </mat-card-header>
+      <img
+        mat-card-image
+        class="carimage"
+        src="https://localhost:44362/{{ car.images[0].imagePath }}"
+      />
+      <mat-card-content>
+        <p class="yazı">
+          {{ car.description }}
+        </p>
+        <hr style="color: white" />
+        <p class="yazı">ÖZELLİKLER</p>
+        <br />
+        <div class="row">
+          <div class="col-6 icons" name="icons">
+            <div>
+              <mat-icon>airline_seat_recline_normal</mat-icon>
+            </div>
+            <mat-icon>currency_lira</mat-icon>
+          </div>
+          <div class="col-6" name="featurs">
+            <p class="featurs">{{ car.doorCount }}</p>
+            <p class="featurs">{{ car.dailyPrice }}</p>
+          </div>
+        </div>
+        <hr style="color: white" />
+      </mat-card-content>
+      <mat-card-actions>
+        <div class="row">
+          <div class="col">
+            <button
+              mat-button
+              (mouseover)="setCurrentCard2(i, true)"
+              (mouseout)="setCurrentCard2(i, false)"
+              [@isover]="setButton2(i) ? 'isover' : 'notover'"
+              class="button-addtocart"
+              (click)="addToCart(car.carId)"
+            >
+              Sepete Ekle
+            </button>
+          </div>
+          <div class="col">
+            <button
+              (mouseover)="setCurrentCard3(i, true)"
+              (mouseout)="setCurrentCard3(i, false)"
+              [@isover]="setButton3(i) ? 'isover' : 'notover'"
+              mat-button
+              class="button-rent"
+              routerLink="/rental/add/{{ car.carId }}"
+            >
+              Kirala
+            </button>
+          </div>
+          <div class="col">
+            <button
+              (mouseover)="setCurrentCard(i, true)"
+              (mouseout)="setCurrentCard(i, false)"
+              [@isover]="setButton(i) ? 'isover' : 'notover'"
+              class="button-inspect"
+              mat-button
+              routerLink="/cardetails/{{ car.carId }}"
+            >
+              İncele
+            </button>
+          </div>
+        </div>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>

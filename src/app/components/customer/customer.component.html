@@ -1,0 +1,15 @@
+<div *ngIf="dataLoaded==false" class="spinner-border text-danger" role="status">
+    <span class="visually-hidden">Loading...</span>
+</div>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Şirket ismi</th>
+        </tr>
+    </thead>
+    <ul class="list-group">
+        <li class="list-group-item" *ngFor="let customer of customers">
+            {{customer.companyName}}
+        </li>
+    </ul>
+</table>

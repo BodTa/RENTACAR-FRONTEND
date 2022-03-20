@@ -1,0 +1,56 @@
+<div class="container-fluid text-white">
+  <mat-card class="card-login">
+    <mat-card-content>
+      <div class="row">
+        <form [formGroup]="authForm">
+          <h1 class="h3 mb-3 fw-normal" style="color: white">Giriş Yapınız</h1>
+
+          <div class="form-floating">
+            <input
+              formControlName="email"
+              type="email"
+              class="form-control"
+              id="floatingInput"
+              placeholder="name@example.com"
+            />
+            <label for="floatingInput">E-Posta</label>
+          </div>
+          <br />
+          <div class="form-floating">
+            <input
+              formControlName="password"
+              type="password"
+              class="form-control"
+              id="floatingPassword"
+              placeholder="Password"
+            />
+            <label for="floatingPassword">Şifre</label>
+          </div>
+          <br />
+          <button
+            mat-raised-button
+            (mouseover)="isOver2(true)"
+            (mouseout)="isOver2(false)"
+            [@isover2]="ifOver2() ? 'isover' : 'notover'"
+            class="btn-login"
+            (click)="login()"
+            type="submit"
+          >
+            Giriş Yap
+          </button>
+          <hr style="color: white" />
+          <button
+            (mouseover)="isOver(true)"
+            (mouseout)="isOver(false)"
+            [@isover2]="ifOver() ? 'isover' : 'notover'"
+            mat-raised-button
+            class="btn-newuser"
+            routerLink="/register"
+          >
+            Yeni üye iseniz tıklayınız
+          </button>
+        </form>
+      </div>
+    </mat-card-content>
+  </mat-card>
+</div>

@@ -1,0 +1,44 @@
+.container-fluid {
+  width: 1024px;
+  height: 637px;
+}
+
+.image {
+  max-width: 400px;
+  max-height: 200px;
+}
+.coruasel-item {
+  height: 32rem;
+  background-color: #777;
+}
+.mat-card {
+  background: linear-gradient(
+    0deg,
+    rgb(32, 32, 32) 0%,
+    hsla(255, 0%, 30%, 1) 100%
+  );
+}
+.button-rent {
+  width: 80px;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    rgb(91, 184, 250) 0%,
+    rgb(172, 134, 248) 100%
+  );
+  outline-color: rgb(58, 58, 58);
+  outline-style: double;
+  opacity: 1;
+}
+.button-seller {
+  width: 165px;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    rgb(91, 184, 250) 0%,
+    rgb(172, 134, 248) 100%
+  );
+  outline-color: rgb(58, 58, 58);
+  outline-style: double;
+  opacity: 1;
+}

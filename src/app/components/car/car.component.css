@@ -1,0 +1,77 @@
+.card {
+  margin-right: 15px;
+  margin-bottom: 15px;
+  max-width: 425px;
+  background-color: rgb(165, 164, 164);
+}
+hr {
+  margin-top: 0px;
+}
+.container-fluid {
+  max-width: max-content;
+  max-height: max-content;
+}
+.row {
+  width: auto;
+  height: auto;
+}
+
+.carimage {
+  max-width: 400px;
+  height: 300px;
+}
+.button-addtocart {
+  width: 100px;
+  height: 40px;
+  margin-right: 10%;
+  background: linear-gradient(
+    180deg,
+    rgb(91, 184, 250) 0%,
+    rgb(172, 134, 248) 100%
+  );
+  outline-color: rgb(58, 58, 58);
+  outline-style: double;
+}
+.button-inspect {
+  width: 100px;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    rgb(91, 184, 250) 0%,
+    rgb(172, 134, 248) 100%
+  );
+  outline-color: rgb(58, 58, 58);
+  outline-style: double;
+}
+.button-rent {
+  width: 100px;
+  height: 40px;
+  background: linear-gradient(
+    180deg,
+    rgb(91, 184, 250) 0%,
+    rgb(172, 134, 248) 100%
+  );
+  outline-color: rgb(58, 58, 58);
+  outline-style: double;
+  opacity: 1;
+}
+.yazı {
+  color: rgb(250, 250, 250);
+}
+.icons {
+  color: rgb(255, 255, 255);
+}
+.featurs {
+  color: rgb(255, 255, 255);
+}
+.car-card {
+  background: linear-gradient(
+    0deg,
+    rgb(32, 32, 32) 0%,
+    hsla(255, 0%, 30%, 1) 100%
+  );
+  max-width: 400px;
+  height: 630px;
+  margin-top: 2%;
+  margin-left: 4%;
+}

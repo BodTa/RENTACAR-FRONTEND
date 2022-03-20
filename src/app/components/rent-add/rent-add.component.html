@@ -1,0 +1,46 @@
+<div class="container">
+  <div clas="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-header"><h5 class="title">Kirala</h5></div>
+        <div class="card-body">
+          <form [formGroup]="rentAddForm">
+            <div class="mb-3">
+              <label for="rentDate">Başlangıç Tarihi</label>
+              <div class="form-group">
+                <input
+                  type="date"
+                  id="rentDate"
+                  formControlName="rentDate"
+                  class="form-control"
+                  placeholder="Başlangıç Tarihi"
+                />
+              </div>
+            </div>
+            <div class="mb-3">
+              <label for="returnDate">Dönüş tarihi</label>
+              <div class="form-group">
+                <input
+                  type="date"
+                  id="returnDate"
+                  formControlName="returnDate"
+                  class="form-control"
+                  placeholder="Dönüş tarihi"
+                />
+              </div>
+            </div>
+          </form>
+          <div class="card-footer">
+            <button
+              type="button"
+              class="btn btn-fill btn-primary"
+              (click)="isRentable()"
+            >
+              Kirala
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+.dropdown-menu {
+  margin-left: 86%;
+  top: 1;
+}
+.menu {
+  background-color: rgb(54, 54, 54);
+}
+.letter {
+  color: white;
+}
+.icon {
+  color: white;
+}
+.navbar {
+  background: linear-gradient(
+    0deg,
+    rgb(32, 32, 32) 0%,
+    hsla(255, 0%, 30%, 1) 100%
+  );
+}

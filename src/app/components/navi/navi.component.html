@@ -1,0 +1,96 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark text-white">
+  <div class="container-fluid">
+    <button
+      class="navbar-toggler"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
+    >
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        <li class="nav-item">
+          <a class="nav-link active" aria-current="page" href="#">Home</a>
+        </li>
+        <app-cart-summary></app-cart-summary>
+      </ul>
+      <form class="d-flex">
+        <div class="row" style="margin-right: auto">
+          <div class="col-md-6" *ngIf="isAuthenticated() == false">
+            <button
+              class="btn btn-outline-success"
+              type="Kayıt Ol"
+              routerLink="/register"
+            >
+              Kayıt Ol
+            </button>
+          </div>
+          <div class="col-md-6" *ngIf="isAuthenticated() == false">
+            <button
+              class="btn btn-outline-success"
+              style="width: 100px"
+              routerLink="/login"
+            >
+              Giriş Yap
+            </button>
+          </div>
+          <div class="col-md-7" *ngIf="isAuthenticated() == true">
+            <div class="row">
+              <div class="col-3">
+                <img
+                  [src]="userLogo"
+                  alt
+                  width="32"
+                  height="32"
+                  class="rounded-cricle me-2"
+                />
+              </div>
+              <div class="col">
+                <label
+                  ><strong style="color: white"
+                    >{{ firstName }} {{ lastName }}</strong
+                  ></label
+                >
+                <button
+                  mat-icon-button
+                  [matMenuTriggerFor]="menu"
+                  aria-label="Example icon-button with a menu"
+                >
+                  <mat-icon>more_vert</mat-icon>
+                </button>
+                <mat-menu #menu="matMenu" class="menu">
+                  <button class="menu" mat-menu-item routerLink="/userdetail">
+                    <mat-icon class="icon">account_circle</mat-icon>
+                    <span class="letter">Hesabım</span>
+                  </button>
+                  <button class="menu" mat-menu-item>
+                    <mat-icon class="icon">shopping_cart</mat-icon>
+                    <span class="letter">Sepetim</span>
+                  </button>
+                  <button class="menu" routerLink="mycars" mat-menu-item>
+                    <mat-icon class="icon">directions_car</mat-icon>
+                    <span class="letter">Araçlarım</span>
+                  </button>
+                  <button class="menu" mat-menu-item (click)="quit()">
+                    <mat-icon class="icon">logout</mat-icon>
+                    <span class="letter">Çıkış</span>
+                  </button>
+                </mat-menu>
+              </div>
+            </div>
+          </div>
+          <div class="col-5" *ngIf="isAuthenticated() == true">
+            <button color="primary" mat-raised-button routerLink="/car/add">
+              Aracını kiralat
+            </button>
+          </div>
+        </div>
+        <div></div>
+      </form>
+    </div>
+  </div>
+</nav>

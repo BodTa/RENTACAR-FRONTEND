@@ -1,0 +1,28 @@
+.card {
+  margin-right: 10%;
+}
+/* input[type="file"] {
+} */
+.customButton {
+  color: white;
+  height: 50px;
+  width: 200px;
+  background-color: #f5af09;
+  margin-right: auto;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  font-size: 20px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: "Montserrat", sans-serif;
+}
+.rowForForm {
+  margin-right: 50%;
+}
+.rowForImage {
+  margin-left: 50%;
+  bottom: 50%;
+}
